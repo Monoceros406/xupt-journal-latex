@@ -1,0 +1,19 @@
+% =============================================================
+%  作者简介（位于参考文献之后，两栏内）
+%  还原 docx：左侧一寸照片占位框，右侧一段示例文字。
+%  请将占位文字替换为实际作者信息；如需多个作者，复制下面的块即可。
+% =============================================================
+
+\vspace{6pt}
+\noindent
+\begin{minipage}[t]{2.6cm}
+  \centering
+  \fbox{\parbox[c][3.4cm][c]{2.3cm}{\centering\zihao{-5} 一寸照片}}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{\dimexpr\linewidth-2.6cm\relax}
+  \begingroup
+  \zihao{-5}\setlength{\parindent}{0pt}\baselineskip 12pt\relax
+  {\heiti 作者简介：}\songti 姓名（出生年—），性别，学位，职称，主要研究方向为×××。E-mail：×××@×××.com。
+  \endgroup
+\end{minipage}

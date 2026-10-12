@@ -1,0 +1,82 @@
+% =============================================================
+%  3 仿真结果及分析
+% =============================================================
+\section{仿真结果及分析}
+
+\subsection{仿真环境及参数}
+
+将环境设置为使用 Python 3.7、PyCharm 2022 和 TensorFlow 1.14。默认参数设置如
+表~\ref{tab:params} 所示，除非另有说明，否则在以下仿真中将保持不变。
+
+\begin{table}[H]
+  \centering
+  \caption{参数说明和默认值设置}
+  \label{tab:params}
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabularx}{\linewidth}{X c}
+    \toprule
+    \multicolumn{1}{c}{参数} & \multicolumn{1}{c}{数值} \\
+    \midrule
+    IoT 设备数量 & 10 \\
+    基站数量 & 3 \\
+    每回合时隙数 & 100 \\
+    最大输入数据量/Mbit & 2 \\
+    最小输入数据量/Mbit & 5 \\
+    最大计算复杂度/(CPU cycles$\cdot$bit$^{-1}$) & 100 \\
+    最小计算复杂度/(CPU cycles$\cdot$bit$^{-1}$) & 1\,000 \\
+    最大传输速率/(Gbit$\cdot$s$^{-1}$) & 1 \\
+    最小传输速率/(Gbit$\cdot$s$^{-1}$) & 2 \\
+    任务处理的最大容忍时延/s & 10 \\
+    每个时隙的长度/s & 15 \\
+    最大块大小/Mbit & 0.5 \\
+    最小块大小/Mbit & 1 \\
+    传播时延/s & 0.01 \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+为了验证区块链驱动的边缘计算系统联合优化算法的性能，首先，将所提算法在不同学习率下
+对评论家网络和演员网络的收敛性进行分析。其次，与随机接入算法和 AC\textsuperscript{[27]}
+算法在任务处理的奖励和能量消耗等方面进行比较。
+
+\subsection{结果分析}
+
+考虑评论家网络的 3 种不同的学习率，将演员网络的学习率设置为 $\eta^{\mu}$。同时，
+保持评论家网络的学习率，并分析 3 种不同学习率对演员网络的影响。所提算法在不同学习率下
+评论家网络和演员网络的收敛性具体如图~\ref{fig:convergence-critic}~图~\ref{fig:convergence-actor}
+所示。
+
+\begin{figure}[H]
+  \centering
+  \fbox{\parbox{0.9\linewidth}{\centering
+    \vspace{1.8cm} 图~\ref{fig:convergence-critic} 占位：评论家网络收敛曲线 \vspace{1.8cm}}}
+  \caption{所提算法在不同学习率下对评论家网络的收敛性}
+  \label{fig:convergence-critic}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \fbox{\parbox{0.9\linewidth}{\centering
+    \vspace{1.8cm} 图~\ref{fig:convergence-actor} 占位：演员网络收敛曲线 \vspace{1.8cm}}}
+  \caption{所提算法在不同学习率下对演员网络的收敛性}
+  \label{fig:convergence-actor}
+\end{figure}
+
+由图~\ref{fig:convergence-critic} 和图~\ref{fig:convergence-actor} 可以看出，这些算法
+收敛曲线分别在第 200 个回合附近收敛，表明在解决复杂问题时，所提算法表现出了快速的收敛特性。
+
+将所提算法和随机接入算法及 AC 算法在任务处理奖励和能量消耗等方面进行比较分析。
+为了最小化能量消耗，通过总能量消耗的倒数确定奖励的大小，因此较高的奖励值表示系统性能较好，
+在降低能耗方面性能更优越。3 种算法的综合性能对比结果如图~\ref{fig:comparison} 所示。
+
+\begin{figure}[H]
+  \centering
+  \fbox{\parbox{0.9\linewidth}{\centering
+    \vspace{1.8cm} 图~\ref{fig:comparison} 占位：3 种算法综合性能对比 \vspace{1.8cm}}}
+  \caption{3 种算法的综合性能对比结果}
+  \label{fig:comparison}
+\end{figure}
+
+由图~\ref{fig:comparison} 可以看出，当所有参数都采用默认设置时，所提算法在收敛性上更稳定，
+且能实现最大的收益。AC 算法和随机接入算法虽然能够收敛，但其收益明显低于所提算法，且稳定性较差。
+因此，所提算法在收敛后，其奖励几乎保持稳定，具有强大的鲁棒性和稳定性。

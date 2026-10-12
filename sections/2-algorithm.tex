@@ -1,0 +1,60 @@
+% =============================================================
+%  2 基于 DDPG 的联合优化算法
+% =============================================================
+\section{基于 DDPG 的联合优化算法}
+
+\dotsline
+考虑问题中涉及到连续变量的动作空间，选用 DDPG\textsuperscript{[17]} 求解该问题。
+为了便于标记，将 $s(t)$ 记为状态、$a(t)$ 记为动作、$r(t)$ 记为奖励及
+$\gamma$ 记为折扣因子。
+
+\subsection{联合接入控制及计算资源分配问题建模}
+
+\dotsline
+
+\subsection{问题重构}
+
+\dotsline
+
+\textbf{步骤 1}\quad 将接入控制与计算资源分配问题重构为马尔可夫决策过程。\par
+\textbf{步骤 2}\quad 定义状态空间、动作空间与奖励函数。
+
+\subsection{算法实现}
+
+基于 DDPG 的资源分配与接入控制算法联合优化算法思路为：先将初始化主演员和评论家
+网络初始化为 $\theta^{\mu}$ 和 $\theta^{Q}$，再用参数 $\theta^{\mu'}$ 和
+$\theta^{Q'}$ 初始化目标演员和评论家网络。网络初始化完成后，开始训练。
+
+\dotsline
+
+具体算法的伪代码如下。
+
+\begin{simplealgo}{基于 DDPG 的资源分配与接入控制算法}
+输入：\par
+1:\quad 用参数 $\theta^{\mu}$ 和 $\theta^{Q}$ 初始化主演员和评论家；\par
+2:\quad 用参数 $\theta^{\mu'}$ 和 $\theta^{Q'}$ 初始化目标演员和评论家；\par
+3:\quad 初始化回合数 EP、步数和表 1 中所有参数；\par
+迭代；\par
+4:\quad for EP 中的每一回合 do；\par
+5:\qquad 初始化系统状态；\par
+6:\qquad for 的每一步 do；\par
+7:\qquad\quad 采取动作，并执行动作；\par
+8:\qquad\quad 智能体根据式 (17) 获得奖励，将环境转换到新的状态；\par
+9:\qquad\quad 将经验数据存储到回放缓冲区中；\par
+10:\qquad\quad 从回放缓冲区中采样一小批 M 次经验；\par
+11:\qquad\quad for 小批次经验中的每一条经验 do；\par
+12:\qquad\qquad 评论家网络根据式 (22) 做出预测；\par
+13:\qquad\qquad 目标演员根据式 (23) 的预测；\par
+14:\qquad\qquad 目标评论家根据式 (24) 的预测；\par
+15:\qquad\qquad 根据式 (25) 获得的 TD 目标；\par
+16:\qquad\quad end for\par
+17:\qquad\quad 根据式 (28) 更新主评论家网络；\par
+18:\qquad\quad for 小批次经验中的每一条经验 do；\par
+19:\qquad\qquad 主演员根据式 (20) 的预测；\par
+20:\qquad\quad end for\par
+21:\qquad\quad 根据式 (21) 更新主演员网络；\par
+22:\qquad\quad 由式 (29) 和式 (30) 更新目标演员和评论家网络；\par
+23:\quad end for\par
+24:\quad end for\par
+输出：联合接入控制及计算资源分配策略
+\end{simplealgo}

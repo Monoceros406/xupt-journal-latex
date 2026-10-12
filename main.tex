@@ -1,0 +1,46 @@
+% !TeX program = xelatex
+% =============================================================
+%  main.tex —— 《西安邮电大学学报》论文主文件
+%  编译：xelatex main.tex（编译两遍以刷新页码与交叉引用）
+%  布局：标题/摘要区通栏 → 正文两栏 → 参考文献通栏
+% =============================================================
+\documentclass{xupt}
+
+\input{metadata}
+
+\begin{document}
+
+% ================= 通栏：中文标题区 =================
+\maketitlecn
+
+% ---------- 中文摘要 / 关键词 / 中图分类号 ----------
+\printcnabstract
+\printcnkeywords
+\printclc
+
+% ================= 通栏：英文标题区 =================
+\maketitleen
+
+% ---------- 英文摘要 / 关键词 ----------
+\printenabstract
+\printenkeywords
+
+% ---------- 短横线 + 收稿信息 ----------
+\shortrule
+\printfootinfo
+
+% ================= 两栏：正文 + 参考文献 + 作者简介 =================
+\begin{multicols}{2}
+\input{sections/0-intro}
+\input{sections/1-architecture}
+\input{sections/2-algorithm}
+\input{sections/3-simulation}
+\input{sections/4-conclusion}
+\input{sections/references}      % 参考文献（两栏）
+\input{sections/bio}             % 作者简介（两栏，参考文献之后）
+\end{multicols}
+
+% ================= 通栏：附录（其他文献著录格式，可选） =================
+% \input{sections/appendix}
+
+\end{document}

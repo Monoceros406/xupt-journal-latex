@@ -1,0 +1,88 @@
+% =============================================================
+%  metadata.tex —— 稿件元信息（按需修改）
+%  这里填写论文的题目、作者、单位、摘要、关键词等信息。
+%  中英文上标用 \textsuperscript{...} 表示单位编号。
+% =============================================================
+
+%% ---------- 卷 / 期 / 年份（页眉用） ----------
+\jvol{31}
+\jnum{2}
+\jyear{2026}
+
+%% ---------- 中文题目 / 作者 / 单位 ----------
+\cntitle{区块链驱动的边缘计算系统联合优化算法}
+
+\cnauthor{%
+  杜剑波\textsuperscript{1,2}，胥娇\textsuperscript{1,2}，%
+  姜静\textsuperscript{2,3}，曾耀平\textsuperscript{1,2}，%
+  金蓉\textsuperscript{1,2}，何华\textsuperscript{1,2}%
+}
+
+\cnaffil{%
+  (1.西安邮电大学\ 通信与信息工程学院，陕西\ 西安\ 710121；\\
+  2.陕西省信息通信网络及安全重点实验室，陕西\ 西安\ 710121；\\
+  3.西安邮电大学\ 科研处，陕西\ 西安\ 710121）%
+}
+
+%% ---------- 中文摘要 / 关键词 / 中图分类号 ----------
+\cnabstract{%
+  针对物联网设备在任务处理过程中能耗高及来自不同运营商的实体之间缺乏信任等问题，
+  提出一种区块链驱动的边缘计算(Multi-access Edge Computing, MEC)系统联合优化算法。
+  构建多接入边缘计算网络架构，其中基站作为边缘节点，同时兼具区块链子系统共识节点的功能。
+  在可信性保证及用户服务质量保障的前提下，通过联合优化接入控制及计算资源分配策略，
+  降低物联网设备的平均总能耗。考虑到网络的动态特性和信息获取的不确定性，
+  将问题重建为马尔可夫决策过程，并采用基于深度确定性策略梯度
+  (Deep Deterministic Policy Gradient, DDPG)的自适应决策算法求解。
+  仿真结果表明，与随机接入算法和演员评论家算法相比，
+  该算法能有效地降低网络能耗，提高 DDPG 智能体的长期平均累积奖励。%
+}
+
+\cnkeywords{多接入边缘计算；区块链；马尔可夫决策过程；深度确定性策略梯度算法；网络能耗}
+\clc{TN929.5；TP18}
+
+%% ---------- 英文题目 / 作者 / 单位 ----------
+\entitle{Joint optimization algorithm for blockchain driven edge computing systems}
+
+\enauthor{%
+  DU Jianbo\textsuperscript{1,2}, XU Jiao\textsuperscript{1,2},
+  JIANG Jing\textsuperscript{2,3}, ZENG Yaoping\textsuperscript{1,2},
+  JIN Rong\textsuperscript{1,2}, HE Hua\textsuperscript{1,2}%
+}
+
+\enaffil{%
+  (1. School of Communications and Information Engineering,
+  Xi'an University of Posts and Telecommunications, Xi'an 710121, China;
+  2. Shaanxi Key Laboratory of Information Communication Network and Security,
+  Xi'an 710121, China;
+  3. Office of Academic Research, Xi'an University of Posts and Telecommunications,
+  Xi'an 710121, China)%
+}
+
+%% ---------- 英文摘要 / 关键词 ----------
+\enabstract{%
+  For the problems of high energy consumption during the task processing of
+  Internet of Things (IoT) devices, and the lack of trust between entities from
+  different operators, a joint optimization algorithm is proposed for a
+  blockchain-driven Multi-access Edge Computing (MEC) system. An MEC network
+  architecture is built, in which base stations serve as edge nodes, while also
+  serving the function of consensus nodes in the blockchain subsystem. With a
+  focus on ensuring the trustworthiness and guaranteeing the quality of services,
+  the algorithm aims to reduce the average total energy consumption of IoT
+  devices through the joint optimization of access control and computing resource
+  allocation strategies. Considering the dynamic nature of the network and
+  uncertainties in information retrieval, the problem is reformulated as a Markov
+  decision process, and an adaptive decision algorithm based on Deep Deterministic
+  Policy Gradient (DDPG) is employed for problem solving. Simulation results
+  indicate that, compared with the random access algorithms and the actor-critic
+  algorithms, the proposed algorithm can effectively reduce network energy
+  consumption, and can enhance the long-term average cumulative rewards of the
+  DDPG intelligent agent.%
+}
+
+\enkeywords{multi-access edge computing; blockchain; Markov decision process;
+deep deterministic policy gradient algorithm; network energy consumption}
+
+%% ---------- 收稿信息（脚注） ----------
+\received{2023-09-29}
+\funding{国家自然科学基金项目（62271391）；陕西省教育厅服务地方专项科研项目（21JC032）}
+\corresponding{杜剑波，dujianboo@163.com}
